@@ -1,0 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: "OffBit";
+  src: url("OTF/OffBitTrial-101Bold.otf");
+}
+
+.font-test {
+  font-family: "OffBit", sans-serif;
+}
