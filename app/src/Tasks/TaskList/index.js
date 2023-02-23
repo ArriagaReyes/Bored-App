@@ -42,7 +42,7 @@ export default class TaskList extends Component {
     render() {
         return createElement('ul', {
 	    'data-component-id': this.id,
-	    'class': 'flex flex-col'
+	    'class': 'flex flex-col pt-24'
 	}, ...this.items);
     }
 }
