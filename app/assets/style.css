@@ -7,6 +7,15 @@
   src: url("./OTF/OffBitTrial-101Bold.otf");
 }
 
-.font-test {
-  font-family: "OffBit", sans-serif;
+html {
+  font-size: 21px;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

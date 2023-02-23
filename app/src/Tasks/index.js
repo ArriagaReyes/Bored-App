@@ -1,38 +1,15 @@
 import Component from '../lib/Component';
 import createElement from '../lib/createElement';
+import TaskList from './TaskList';
+import ArchiveList from './ArchiveList';
 
-class TaskItem extends Component {
-    constructor({ item, callback  }) {
+class Header extends Component {
+    constructor() {
         super();
-
-	this.callback = callback;
-	this.item = item;
-    }
-
-    click(e) {
-	e.preventDefault();
-	this.callback(this.item);
     }
 
     render() {
-        return createElement('li', {
-	     onclick: this.click.bind(this),
-	    'data-component-id': this.id
-	}, this.item);
-    }
-}
-
-class TaskList extends Component {
-    constructor({ children = [], callback }) {
-        super();
-
-	this.items = children.map(item => new TaskItem({ item, callback }))
-    }
-
-    render() {
-        return createElement('ul', {
-	    'data-component-id': this.id
-	}, ...this.items);
+        return createElement('div', 'Untitled header here');
     }
 }
 
@@ -40,6 +17,9 @@ export default class Tasks extends Component {
     constructor() {
         super();
 	this.tasks = ['eat breakfast', 'workout', 'take over the world'];
+	for(let i = 0; i < this.tasks.length; i++) {
+	    this.tasks[i] = this.tasks[i].toUpperCase();
+	}
 	this.archived = [];
 	this.setState({
 	    tasks: this.tasks,
@@ -50,7 +30,7 @@ export default class Tasks extends Component {
     }
 
     addItem(item) {
-        this.state.tasks = this.state.tasks.concat(item);
+        this.state.tasks = this.state.tasks.concat(item.toUpperCase());
     }
 
     archiveItem(item) {
@@ -67,13 +47,14 @@ export default class Tasks extends Component {
 	    callback: this.archiveItem.bind(this)
 	});
 
-	this.archiveListComponent = new TaskList({
+	this.archiveListComponent = new ArchiveList({
 	    children: this.state.archived,
 	    callback: () => {}
 	});
 
 	return createElement('div',{
-	    'data-component-id': this.id
+	    'data-component-id': this.id,
+	    'class': 'bg-black'
 	}, this.taskListComponent, this.archiveListComponent);
     }
 }
