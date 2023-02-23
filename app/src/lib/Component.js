@@ -5,14 +5,12 @@ let id = 0;
 export default class Component extends Consequence{
     constructor() {
 	super();
-        console.log('Creating a component');
 
-	this.id = (id++).toString();
+	this.id = (id + 1).toString();
 	this.state = {};
 	this.stateHandler = {
 	    set: (target, prop, value, receiver) => {
 	        target[prop] = value;
-		console.log(`property set: ${prop} = ${value}`);
 		this.trigger('state');
 		return true;
 	    }
@@ -27,5 +25,9 @@ export default class Component extends Consequence{
 
     setState(state) {
         this.state = new Proxy(state, this.stateHandler);
+    }
+
+    isComponent() {
+        return true;
     }
 }
