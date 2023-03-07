@@ -23,9 +23,11 @@ class TaskItem extends Component {
 	    'class': `
 		flex justify-center
 		items-center h-[33vh]
-		font-OffBit text-5xl text-center
-		mr-2 ml-2 mb-2 bg-task-blue
-		text-task-white rounded-2xl
+		font-OffBit lg:text-5xl text-center
+		lg:mr-2 lg:ml-2 lg:mb-2 bg-task-blue
+		text-task-white lg:rounded-2xl
+		mr-1 ml-1 mb-1.5 rounded-md
+		text-2xl
 		cursor-pointer
 	    `
 	}, this.container);
@@ -42,7 +44,7 @@ export default class TaskList extends Component {
     render() {
         return createElement('ul', {
 	    'data-component-id': this.id,
-	    'class': 'flex flex-col pt-24'
+	    'class': 'flex flex-col lg:pt-24 pt-12'
 	}, ...this.items);
     }
 }

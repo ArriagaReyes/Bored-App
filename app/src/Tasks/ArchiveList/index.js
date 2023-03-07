@@ -17,9 +17,10 @@ class ArchiveItem extends Component {
 	    'class': `
 		flex justify-center
 		items-center h-[33vh]
-		font-OffBit text-5xl text-center
-		mr-2 ml-2 mb-2 bg-task-blue-disabled
-		text-task-white-disabled rounded-2xl
+		font-OffBit lg:text-5xl text-center
+		lg:mr-2 lg:ml-2 lg:mb-2 bg-task-blue-disabled
+		text-task-white-disabled lg:rounded-2xl
+		mr-1 ml-1 mb-1.5 rounded-md text-2xl
 		cursor-not-allowed
 	    `
 	}, this.container);

@@ -21,8 +21,9 @@ class TaskButton extends Component {
 	    onclick: this.click.bind(this),
 	    'class': `
 		bg-task-white text-task-blue
-		px-5 py-2 rounded-xl font-OffBit
-		text-2xl
+		lg:px-5 lg:py-2 lg:rounded-xl font-OffBit
+		lg:text-2xl
+		text-sm px-2.5 py-1.5 rounded-md
 	    `
 	}, 'ADD TASK');
     }
@@ -36,9 +37,10 @@ class TaskForm extends Component {
 
 	this.input = createElement('input', {
 	    'class': `
-		grow mr-2 rounded-xl bg-transparent
-		border-4 border-task-white text-task-white
-		font-OffBit text-2xl text-center
+		grow lg:mr-2 lg:rounded-xl bg-transparent
+		lg:border-4 border-task-white text-task-white
+		font-OffBit lg:text-2xl text-center
+		mr-1 rounded-md border-2 text-sm
 	    `
 	});
 	this.taskButtonComponent = new TaskButton({ callback: this.addTask.bind(this) });
@@ -70,7 +72,8 @@ class Header extends Component {
 	    'data-component-id': this.id,
             'class': `
 		fixed inset-x-0 top-0
-		flex justify-end py-3 px-2
+		flex justify-end lg:py-3 lg:px-2
+		py-2 px-1
 	    `
 	}, this.taskFormComponent);
     }
